@@ -375,7 +375,7 @@ class LineItemService extends TransactionBaseService {
           this.lineItemRepository_
         )
 
-        const data_ = Array.isArray(data) ? data : [data]
+        const data_:any = Array.isArray(data) ? data : [data]
 
         const items = lineItemRepository.create(data_)
         const lineItems = await lineItemRepository.save(items)
