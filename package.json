@@ -1,5 +1,5 @@
 {
-  "name": "@prettydev/medusa",
+  "name": "@medusajs/medusa",
   "version": "1.7.5",
   "description": "E-commerce for JAMstack",
   "main": "dist/index.js",
@@ -44,7 +44,7 @@
     "medusa-interfaces": "1.3.4"
   },
   "dependencies": {
-    "@prettydev/medusa-cli": "https://github.com/prettydev/medusa-cli",
+    "@medusajs/medusa-cli": "^1.3.6",
     "@types/ioredis": "^4.28.10",
     "@types/lodash": "^4.14.168",
     "awilix": "^8.0.0",
