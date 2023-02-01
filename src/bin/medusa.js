@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require(`@medusajs/medusa-cli`)
+require(`@prettydev/medusa-cli`)
