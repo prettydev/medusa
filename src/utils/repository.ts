@@ -1,5 +1,5 @@
 import { flatten, groupBy, map, merge } from "lodash"
-import { EntityMetadata, ObjectLiteral, Repository, SelectQueryBuilder } from "typeorm"
+import { EntityMetadata, Repository, SelectQueryBuilder } from "typeorm"
 import { ExtendedFindConfig } from "../types/common"
 
 /**
@@ -12,7 +12,7 @@ import { ExtendedFindConfig } from "../types/common"
  * @param select
  * @param customJoinBuilders
  */
-export async function queryEntityWithIds<T extends ObjectLiteral>(
+export async function queryEntityWithIds<T>(
   repository: Repository<T>,
   entityIds: string[],
   groupedRelations: { [toplevel: string]: string[] },
@@ -89,7 +89,7 @@ export async function queryEntityWithIds<T extends ObjectLiteral>(
  * @param shouldCount
  * @param customJoinBuilders
  */
-export async function queryEntityWithoutRelations<T extends ObjectLiteral>(
+export async function queryEntityWithoutRelations<T>(
   repository: Repository<T>,
   optionsWithoutRelations: Omit<ExtendedFindConfig<T, unknown>, "relations">,
   shouldCount = false,
@@ -188,7 +188,7 @@ export function mergeEntitiesWithRelations<T>(
  * @param alias
  * @param shouldJoin In case a join is already applied elsewhere and therefore you want to avoid to re joining the data in that case you can return false for specific relations
  */
-export function applyOrdering<T extends ObjectLiteral>({
+export function applyOrdering<T>({
   repository,
   order,
   qb,

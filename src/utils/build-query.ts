@@ -16,7 +16,7 @@ export function buildQuery<TWhereKeys, TEntity = unknown>(
   selector: TWhereKeys,
   config: FindConfig<TEntity> = {}
 ): ExtendedFindConfig<TEntity, TWhereKeys> {
-  const build:any = (obj: Selector<TEntity>): Partial<Writable<TWhereKeys>> => {
+  const build = (obj: Selector<TEntity>): Partial<Writable<TWhereKeys>> => {
     return Object.entries(obj).reduce((acc, [key, value]: any) => {
       // Undefined values indicate that they have no significance to the query.
       // If the query is looking for rows where a column is not set it should use null instead of undefined
@@ -85,9 +85,9 @@ export function buildQuery<TWhereKeys, TEntity = unknown>(
     where: build(selector),
   }
 
-  // if ("deleted_at" in selector) {
-  //   query.withDeleted = true
-  // }
+  if ("deleted_at" in selector) {
+    query.withDeleted = true
+  }
 
   if ("skip" in config) {
     query.skip = config.skip

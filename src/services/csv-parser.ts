@@ -11,7 +11,7 @@ const DEFAULT_PARSE_OPTIONS = {
 
 class CsvParser<
   TSchema extends CsvSchema<TParserResult, TOutputResult> = CsvSchema,
-  TParserResult extends object = {},
+  TParserResult = unknown,
   TOutputResult = unknown
 > extends AbstractParser<TSchema, TParserResult, ParseConfig, TOutputResult> {
   protected readonly $$delimiter: string = ";"
