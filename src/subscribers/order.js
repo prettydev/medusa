@@ -42,6 +42,13 @@ class OrderSubscriber {
         })
       })
     )
+
+    // for automatic capture
+    await this.orderService_.capturePayment(order.id);
+
+    // call email sender with product information
+    // (email, product handle)
+
   }
 
   updateDraftOrder = async (data) => {
